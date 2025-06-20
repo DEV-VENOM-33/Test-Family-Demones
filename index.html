@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="dms-removebg-preview.png" type="image/png">
+    <title>FAMILY DEMONES</title>
+    <style>
+        body {
+            background-image: url('download.jpeg'); /* ضع رابط الصورة هنا */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-shadow: 0 0 10px #0026ff;
+            margin-top: 120px;
+        }
+        .sub-logo {
+            color: #0077ff;
+            font-style: italic;
+        }
+        .server-logo {
+            position: absolute;
+            top: 0.1px;
+            left: 850px;
+            width: 200px;
+            height: auto;
+        }
+        .container {
+            margin: 30px auto;
+            width: 50%;
+            background-color: rgba(30, 42, 58, 0.8); /* خلفية مظللة */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 17, 255, 0.5);
+            transition: box-shadow 0.3s ease-in-out;
+            position: relative;
+        }
+        .container:hover {
+            box-shadow: 0 0 25px rgb(255, 255, 255);
+        }
+        input, textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #2d3b4e;
+            color: white;
+            outline: none;
+        }
+        button {
+            width: 95%;
+            padding: 10px;
+            background-color: #0059ff;
+            border: none;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        button:hover {
+            background-color: #002fff;
+        }
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: rgba(30, 42, 58, 0.8);
+            color: #447fff;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <img src="dms-removebg-preview.png" alt="Server Logo" class="server-logo">
+    <div class="logo">FAMILY<span class="sub-logo">DEMONES</span></div>
+    <h2>Test Application</h2>
+    <div class="container">
+        <input type="text" id="nameIRL" placeholder="Name IRL">
+        <input type="number" id="ageIRL" placeholder="Age IRL">
+        <input type="text" id="nameRP" placeholder="Name RP">
+        <input type="text" id="discordid" placeholder="Discord Id">
+        <textarea id="sabab" placeholder="3lach Bagi Dkhol M3ana" rows="1"></textarea>
+        <textarea id="wfdcg" placeholder="Wach Dija Dakhl Fchi Family Ah|La" rows="1"></textarea>
+        <input type="text" id="pcorphone" placeholder="WAch Kat9asar B Pc wla Phone">
+        <button onclick="submitApplication()">Submit Application</button>
+    </div>
+    <script>
+        function submitApplication() {
+            const webhookURL = "https://discord.com/api/webhooks/1385447077609214022/WEs9OIA-NlGiNWq1ZCDf1pK8YMCQHRfyvS5A0VaBpMqzfR4dvKTFOaOTpixppUcmZtOD";
+            const nameIRL = document.getElementById("nameIRL").value;
+            const ageIRL = document.getElementById("ageIRL").value;
+            const nameRP = document.getElementById("nameRP").value;
+            const discordid = document.getElementById("discordid").value;
+            const sabab = document.getElementById("sabab").value;
+            const wfdcg = document.getElementById("wfdcg").value;
+            const pcorphone = document.getElementById("pcorphone").value;
+
+            const embed = {
+                title: "TEST FAMILY DEMONES",
+                color: 1,
+                fields: [
+                    { name: "Name IRL", value: nameIRL, inline: true },
+                    { name: "Age IRL", value: ageIRL, inline: true },
+                    { name: "Name RP", value: nameRP, inline: true },
+                    { name: "Discord Id", value: discordid, inline: true },
+                    { name: "Sabab dyalo 3lach bga ydkhol m3ana", value: sabab },
+                    { name: "Wach Dija Dakhl Fchi Family", value: wfdcg },
+                    { name: "Pc Wla Phone", value: pcorphone, inline: true }
+                ]
+            };
+
+            fetch(webhookURL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ embeds: [embed] })
+            }).then(() => alert("Sf Dda3ti Dommond Dyalk Tsna Ruselta F discord A hbibi!"))
+              .catch(err => alert("Error submitting application: " + err));
+        }
+    </script>
+
+    <!-- Footer with Copyright -->
+    <footer>
+        <p>&copy; 2025 FAMILY DEMONES . BRONO DEMONES</p>
+    </footer>
+</body>
+</html>
